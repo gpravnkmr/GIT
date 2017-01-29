@@ -1,0 +1,32 @@
+<div class='d:'>
+    <div class='panel-heading'>
+        Login
+    </div>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class='panel-body'>
+            <div class='row'>
+                <div class='col-md-2'>User Name:</div>
+                <div class='col-md-4'>
+                    <input type='text' [(ngModel)]='userName'/>
+                    <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-2'>Password:</div>
+                <div class='col-md-4'>
+                    <input type='password' [(ngModel)]='password'/>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <button class='btn btn-primary' (click)='LoginClick()'>Login</button>
+                </div>
+            </div>
+            <div>
+                <div class='col-md-6'>
+                    {{ PageTitle }}
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

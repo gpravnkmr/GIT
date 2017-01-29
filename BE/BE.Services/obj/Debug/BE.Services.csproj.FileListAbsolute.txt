@@ -1,0 +1,9 @@
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\bin\Debug\BE.Services.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\bin\Debug\BE.Services.pdb
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\bin\Debug\BE.Data.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\bin\Debug\BE.Entities.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\bin\Debug\BE.Data.pdb
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\bin\Debug\BE.Entities.pdb
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\obj\Debug\BE.Services.csprojResolveAssemblyReference.cache
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\obj\Debug\BE.Services.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Services\obj\Debug\BE.Services.pdb
