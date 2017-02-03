@@ -12,5 +12,6 @@ namespace BE.Entities
         public string MenuName { get; set; }
         public string MenuImage { get; set; }
         public string MenuStatus { get; set; }
+        public string URL { get; set; }
     }
 }

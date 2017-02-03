@@ -28,6 +28,7 @@ namespace BE.Data
                                       MenuName = row.Field<string>("MenuName"),
                                       MenuImage = row.Field<string>("MenuImage"),
                                       MenuStatus = row.Field<string>("MenuStatus"),
+                                      URL=row.Field<string>("URL"),
                                   }).ToList();
                 }
             }

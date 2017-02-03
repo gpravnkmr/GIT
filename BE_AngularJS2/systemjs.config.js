@@ -22,7 +22,7 @@
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-
+      'angular2-cookie': 'npm:angular2-cookie',
       // other libraries
       'rxjs': 'npm:rxjs'
     },
@@ -30,6 +30,10 @@
     packages: {
       app: {
         main: './main.js',
+        defaultExtension: 'js'        
+      },
+      'angular2-cookie': {
+        main: './core.js',
         defaultExtension: 'js'
       },
       rxjs: {

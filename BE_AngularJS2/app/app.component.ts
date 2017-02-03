@@ -1,22 +1,37 @@
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
+import {CookiesService} from './Shared/CookiesService'
+import { Router } from '@angular/router';
+import {SharedService} from './shared/shared.service'
 
 @Component({
     selector: 'be-app',
-    template: `<div>
-      <nav class='navbar navbar-default'>
-            <div class='container-fluid'>
-                <a class='navbar-brand' [routerLink]="['/welcome']">Bhawana Enterprises</a>
-                <ul class='nav navbar-right'>
-                    <li><a [routerLink]="['/login']">Login</a></li>                    
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div class='container'>
-        <router-outlet></router-outlet>
-    </div>`
-
+    templateUrl: 'app/app.component.html',
+    providers:[CookiesService,SharedService]
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
+    IsUserLoggedIn:boolean=false;
+    constructor(private _cookieService:CookiesService,
+                private router:Router,
+                private _sharedService:SharedService) {
+         this.IsUserLoggedIn=this._sharedService.getEmittedValue().subscribe((item:boolean) => this.IsUserLoggedIn=item);
+    }
 
+    ngOnInit():void{
+        if(this._cookieService.getCookie("BE_UserRole")!=undefined){
+            this.IsUserLoggedIn=true;
+        }
+        else{
+            this.IsUserLoggedIn=false;
+        }
+    }
+
+    LogoutClick():void{
+        this.IsUserLoggedIn=false;
+        this._cookieService.removeAllCookies();
+        this.router.navigate(["welcome"]);
+    }
+
+    goback():void{
+        window.history.back();
+    }
 }

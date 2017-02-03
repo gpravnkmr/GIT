@@ -27,7 +27,7 @@ var LoginService = (function () {
         params.set('password', password);*/
         return this._http.get(this._loginUrl + userName + "/" + password)
             .map(function (response) { return response.json(); })
-            .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
+            .do(function (data) { return JSON.stringify(data); })
             .catch(this.handleError);
     };
     LoginService.prototype.handleError = function (error) {

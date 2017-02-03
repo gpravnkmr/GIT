@@ -1,0 +1,22 @@
+<div class="row">
+</div>
+<div class="row multi-columns-row">
+    <!-- ngInclude:  -->
+    <div class="ng-scope" *ngIf="MenuOptions">
+        <!-- ngRepeat: album in albums | orderBy:sortField:sortDescending -->
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 ng-scope" *ngFor="let menuOption of MenuOptions">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h4>
+                        <a [routerLink]='menuOption.URL'><img [src]='menuOption.MenuImage' [alt]='menuOption.MenuName' /></a>
+                    </h4>
+                    <h4>
+                        <div class="center-block">
+                            <a [routerLink]='menuOption.URL'>{{menuOption.MenuName}}</a>
+                        </div>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

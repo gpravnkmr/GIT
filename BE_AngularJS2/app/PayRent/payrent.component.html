@@ -1,0 +1,52 @@
+<div class="col-md-6 col-md-offset-3">
+    <h2>Pay Rent</h2>
+    <form name="payrent" (ngSubmit)="f.form.valid && payrent()" #f="ngForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="name">Name:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="branch">Branch:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="branch" placeholder="Enter Branch">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="roomNo">Room Number:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="roomNo" placeholder="Enter Room No">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="paymentMonth">Month of Payment:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="paymentMonth" placeholder="Enter Month of Payment">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="paymentType">Payment Type:</label>
+            <div class="col-sm-8">
+                <select id="PaymentType">
+                    <optgroup>
+                        <option value="Rent">Rent</option>
+                        <option value="Security Deposit">Security Deposit</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4" for="amount">Amount to be Paid:</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="amount" placeholder="Enter Amount to be Paid">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" class="btn btn-primary">Make Payment</button>
+                <button type="button" class="btn btn-primary" (click)='goback()'>Back</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -12,8 +12,11 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var login_component_1 = require("./login/login.component");
-var welcome_component_1 = require("./home/welcome.component");
+var welcome_component_1 = require("./Welcome/welcome.component");
+var home_component_1 = require("./Home/home.component");
 var login_services_1 = require("./login/login.services");
+var payrent_component_1 = require("./PayRent/payrent.component");
+var cookies_service_1 = require("angular2-cookie/services/cookies.service");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,12 +30,16 @@ AppModule = __decorate([
             router_1.RouterModule.forRoot([
                 { path: 'welcome', component: welcome_component_1.WelcomeComponent },
                 { path: 'login', component: login_component_1.LoginComponent },
+                { path: 'home', component: home_component_1.HomeComponent },
+                { path: 'payrent', component: payrent_component_1.PayRentComponent },
                 { path: '', redirectTo: 'welcome', pathMatch: 'full' }
             ])],
         declarations: [app_component_1.AppComponent,
             login_component_1.LoginComponent,
-            welcome_component_1.WelcomeComponent],
-        providers: [login_services_1.LoginService],
+            welcome_component_1.WelcomeComponent,
+            home_component_1.HomeComponent,
+            payrent_component_1.PayRentComponent],
+        providers: [login_services_1.LoginService, cookies_service_1.CookieService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
