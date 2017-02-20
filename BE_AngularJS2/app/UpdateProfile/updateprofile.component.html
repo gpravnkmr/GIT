@@ -1,0 +1,38 @@
+<div class='container'>
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Pay Rent</h2>
+        <form name="updateprofile" (ngSubmit)="f.form.valid && payrent()" #f="ngForm" class="form-horizontal" novalidate>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="name">Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" disabled [(ngModel)]='tenantName'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Email:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Enter Email" [(ngModel)]='tenantEmail'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="roomNo">Room Number:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="roomNo" name="roomNo" placeholder="Enter Room No" disabled [(ngModel)]='tenantRoomNumber'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="paymentMonth">Month of Payment:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="paymentMonth" name="paymentMonth" placeholder="Enter Month of Payment" disabled
+                        [(ngModel)]='monthofPayment'>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-primary" (click)='goback()'>Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var CookiesService_1 = require("../Shared/CookiesService");
+var CookiesService_1 = require("../SharedServices/CookiesService");
 var router_1 = require("@angular/router");
 var home_service_1 = require("./home.service");
 var HomeComponent = (function () {
@@ -20,17 +20,12 @@ var HomeComponent = (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
-        if (this._CookiesService.getCookie("BE_UserRole")) {
-            this._homeService.getUser(this._CookiesService.getCookie("BE_UserRole"))
-                .subscribe(function (_menus) {
-                _this.MenuOptions = _menus;
-            }, function (error) {
-                _this.errorMessage = error;
-            });
-        }
-        else {
-            this._router.navigate(["welcome"]);
-        }
+        this._homeService.getUser(this._CookiesService.getCookie("BE_UserRole"))
+            .subscribe(function (_menus) {
+            _this.MenuOptions = _menus;
+        }, function (error) {
+            _this.errorMessage = error;
+        });
     };
     return HomeComponent;
 }());

@@ -18,14 +18,13 @@ require("rxjs/add/observable/throw");
 var LoginService = (function () {
     function LoginService(_http) {
         this._http = _http;
-        this._loginUrl = 'http://localhost:6271/api/login/';
+        this._loginUrl = 'http://localhost:6271/api/login/GetUser';
     }
     LoginService.prototype.getUser = function (userName, password) {
-        // Parameters obj-
-        /*let params: URLSearchParams = new URLSearchParams();
-        params.set('userName', userName);
-        params.set('password', password);*/
-        return this._http.get(this._loginUrl + userName + "/" + password)
+        var bodyString = JSON.stringify({ UserName: userName, Password: password }); // Stringify payload
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+        var options = new http_1.RequestOptions({ headers: headers }); // Create a request option
+        return this._http.post(this._loginUrl, bodyString, options)
             .map(function (response) { return response.json(); })
             .do(function (data) { return JSON.stringify(data); })
             .catch(this.handleError);

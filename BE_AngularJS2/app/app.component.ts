@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core'
-import {CookiesService} from './Shared/CookiesService'
-import { Router } from '@angular/router';
-import {SharedService} from './shared/shared.service'
+import {CookiesService} from './SharedServices/CookiesService'
+import { Router } from '@angular/router'
+import {SharedService} from './SharedServices/shared.service'
 
 @Component({
     selector: 'be-app',
     templateUrl: 'app/app.component.html',
+    styleUrls:['app/app.component.css'],
     providers:[CookiesService,SharedService]
 })
 export class AppComponent implements OnInit{
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit{
     ngOnInit():void{
         if(this._cookieService.getCookie("BE_UserRole")!=undefined){
             this.IsUserLoggedIn=true;
+            this.router.navigate(["home"]);
         }
         else{
             this.IsUserLoggedIn=false;

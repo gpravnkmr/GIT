@@ -16,7 +16,6 @@ D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE_WebAPI.pdb
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\Antlr3.Runtime.dll
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE.Data.dll
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE.Entities.dll
-D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE.Services.dll
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\Microsoft.Web.Infrastructure.dll
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\Newtonsoft.Json.dll
@@ -33,7 +32,6 @@ D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\System.Web.WebP
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\WebGrease.dll
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE.Data.pdb
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE.Entities.pdb
-D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\BE.Services.pdb
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\Newtonsoft.Json.xml
 D:\Business_Plan\BhawanaEnterprises\Development\BE\BE_WebAPI\bin\System.Net.Http.Formatting.xml

@@ -10,20 +10,17 @@ namespace BE_WebAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
-            // Web API routes
-            config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-
+            // Web API routes
+            config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
-                name: "LoginApi",
-                routeTemplate: "api/{controller}/{username}/{password}",
-                defaults: new { username = RouteParameter.Optional, password = RouteParameter.Optional }
+                name: "TenantApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
             );
         }
     }

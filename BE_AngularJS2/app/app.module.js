@@ -10,13 +10,21 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
+var app_routes_1 = require("./app.routes");
+//Import the dependent modules
+var tenant_module_1 = require("./Tenant/tenant.module");
+var manager_module_1 = require("./Manager/manager.module");
+//Import the required components
 var app_component_1 = require("./app.component");
 var login_component_1 = require("./login/login.component");
 var welcome_component_1 = require("./Welcome/welcome.component");
 var home_component_1 = require("./Home/home.component");
+var updateprofile_component_1 = require("./Shared/updateprofile.component");
+//Import the required services
 var login_services_1 = require("./login/login.services");
-var payrent_component_1 = require("./PayRent/payrent.component");
 var cookies_service_1 = require("angular2-cookie/services/cookies.service");
+var AuthGuard_1 = require("./SharedEntities/AuthGuard");
+var CookiesService_1 = require("./SharedServices/CookiesService");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -27,19 +35,15 @@ AppModule = __decorate([
         imports: [platform_browser_1.BrowserModule,
             forms_1.FormsModule,
             http_1.HttpModule,
-            router_1.RouterModule.forRoot([
-                { path: 'welcome', component: welcome_component_1.WelcomeComponent },
-                { path: 'login', component: login_component_1.LoginComponent },
-                { path: 'home', component: home_component_1.HomeComponent },
-                { path: 'payrent', component: payrent_component_1.PayRentComponent },
-                { path: '', redirectTo: 'welcome', pathMatch: 'full' }
-            ])],
+            tenant_module_1.TenantModule.forRoot(),
+            manager_module_1.ManagerModule.forRoot(),
+            router_1.RouterModule.forRoot(app_routes_1.routes)],
         declarations: [app_component_1.AppComponent,
             login_component_1.LoginComponent,
             welcome_component_1.WelcomeComponent,
             home_component_1.HomeComponent,
-            payrent_component_1.PayRentComponent],
-        providers: [login_services_1.LoginService, cookies_service_1.CookieService],
+            updateprofile_component_1.ProfileComponent],
+        providers: [login_services_1.LoginService, cookies_service_1.CookieService, AuthGuard_1.AuthGuard, CookiesService_1.CookiesService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

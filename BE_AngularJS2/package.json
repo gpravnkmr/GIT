@@ -10,7 +10,12 @@
     "lint": "tslint ./app/**/*.ts -t verbose",
     "lite": "lite-server",
     "typings": "typings",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "precompile": "npm run clean",
+    "html": "copyfiles ./app/**/*.html app/**/*.css ./dist/",
+    "clean": "rimraf dist/*",
+    "compile": "npm run compile:ts",
+    "compile:ts": "tsc --outDir ./dist/app --module commonjs ./app/main.ts"
   },
   "license": "ISC",
   "dependencies": {
@@ -32,6 +37,7 @@
   },
   "devDependencies": {
     "concurrently": "^2.2.0",
+    "copyfiles": "^1.2.0",
     "lite-server": "^2.2.0",
     "tslint": "^3.7.4",
     "typescript": "^2.0.2",

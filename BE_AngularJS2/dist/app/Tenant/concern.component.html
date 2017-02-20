@@ -1,0 +1,97 @@
+<div class='container'>
+    <div class="col-md-12">
+        <h2>Complaints</h2>
+        <form name="complaints" (ngSubmit)="f.form.valid && RaiseComplaint()" #f="ngForm" class="form-horizontal" novalidate>
+            <div class="form-group" *ngIf='StatusMessage!=""'>
+                <div class="col-sm-12 alert alert-success">
+                    {{StatusMessage}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="name">Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" disabled [(ngModel)]='tenantName'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="branch">Branch:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="branch" name="branch" placeholder="Enter Branch" disabled [(ngModel)]='tenantBranch'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="roomNo">Room Number:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="roomNo" name="roomNo" placeholder="Enter Room No" disabled [(ngModel)]='tenantRoomNumber'>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="status">Status:</label>
+                <div class="col-sm-8">
+                    <select id="status" name="status" [(ngModel)]='complaintStatus'>
+                    <optgroup>
+                        <option value="New" selected>New</option>
+                        <option value="Re-Open">Re-Open</option>
+                    </optgroup>
+                </select>
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !details.valid }">
+                <label class="control-label col-sm-4" for="complaints">Description:</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" id="complaints" rows="5" name="complaints" placeholder="Enter complaint details" [(ngModel)]='complaintDetails' #details="ngModel" required></textarea>
+                    <div *ngIf="f.submitted && !details.valid" class="help-block">Description is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button class="btn btn-primary" [disabled]='saveDisabled'>Submit</button>
+                    <button type="reset" class="btn btn-primary" (click)='reset()'>Reset</button>
+                    <button type="button" class="btn btn-primary" (click)='goback()'>Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12 table-responsive" *ngIf="_complaints">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Complaint Desc.
+                    </th>
+                    <th>
+                        Date Raised
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Last Modi. Date
+                    </th>
+                    <th>
+                        Edit
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let _complaint of _complaints">
+                    <td>
+                        {{_complaint.ComplaintDescription}}
+                    </td>
+                    <td>
+                        {{_complaint.ComplaintRaisedDate}}
+                    </td>
+                    <td>
+                        {{_complaint.ComplaintStatus}}
+                    </td>
+                    <td>
+                        {{_complaint.ComplaintLastModifiedDate}}
+                    </td>
+                    <td>
+                        <button class="btn-link" type="button" (click)="EditComment(_complaint.ComplaintID)">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

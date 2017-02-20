@@ -1,0 +1,17 @@
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+.bg-2 { 
+      background-color: #ffffff; /* White */
+      color: #555555;
+  }
+.bg-3 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }

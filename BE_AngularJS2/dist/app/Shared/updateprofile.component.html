@@ -1,0 +1,65 @@
+<div class='container'>
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Pay Rent</h2>
+        <form name="updateprofile" (ngSubmit)="f.form.valid && updateProfile()" #f="ngForm" class="form-horizontal" novalidate>
+            <div class="form-group" *ngIf='StatusMessage!=""'>
+                <div class="col-sm-12 alert alert-success">
+                    {{StatusMessage}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="name">Name:</label>
+                <div class="col-sm-8" [ngClass]="{ 'has-error': f.submitted && !name.valid }">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" [(ngModel)]='userName' #name="ngModel"
+                        required>
+                    <div *ngIf="f.submitted && !name.valid" class="help-block">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Email:</label>
+                <div class="col-sm-8" [ngClass]="{ 'has-error': !email.valid }">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" [(ngModel)]='userEmail' #email="ngModel"
+                        required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                    <div class="help-block" [hidden]="email.valid || email.untouched">
+                        <div class="help-block" *ngIf="email.errors && email.errors.required">
+                            Email is required
+                        </div>
+                        <div class="help-block" *ngIf="email.errors && email.errors.pattern">
+                            Email is invalid
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="phoneno">Phone Number:</label>
+                <div class="col-sm-8" [ngClass]="{ 'has-error': !phoneno.valid }">
+                    <input type="text" class="form-control" id="phoneno" name="phoneno" placeholder="Enter Phone No" #phoneno="ngModel" [(ngModel)]='userPhoneNo'
+                        required pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$">
+                    <div class="has-error" [hidden]="phoneno.valid || phoneno.untouched">
+                        <div class="has-error" *ngIf="phoneno.errors && phoneno.errors.required">
+                            Phone Number is required
+                        </div>
+                        <div class="has-error" *ngIf="phoneno.errors && phoneno.errors.pattern">
+                            Phone Number is invalid
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="password">Password:</label>
+                <div class="col-sm-8" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" #password="ngModel"
+                        [(ngModel)]='userPassword' required>
+                    <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="reset" class="btn btn-primary" (click)='reset()'>Reset</button>
+                    <button type="button" class="btn btn-primary" (click)='goback()'>Back</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

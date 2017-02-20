@@ -9,9 +9,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var CookiesService_1 = require("./Shared/CookiesService");
+var CookiesService_1 = require("./SharedServices/CookiesService");
 var router_1 = require("@angular/router");
-var shared_service_1 = require("./shared/shared.service");
+var shared_service_1 = require("./SharedServices/shared.service");
 var AppComponent = (function () {
     function AppComponent(_cookieService, router, _sharedService) {
         var _this = this;
@@ -24,6 +24,7 @@ var AppComponent = (function () {
     AppComponent.prototype.ngOnInit = function () {
         if (this._cookieService.getCookie("BE_UserRole") != undefined) {
             this.IsUserLoggedIn = true;
+            this.router.navigate(["home"]);
         }
         else {
             this.IsUserLoggedIn = false;
@@ -43,6 +44,7 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'be-app',
         templateUrl: 'app/app.component.html',
+        styleUrls: ['app/app.component.css'],
         providers: [CookiesService_1.CookiesService, shared_service_1.SharedService]
     }),
     __metadata("design:paramtypes", [CookiesService_1.CookiesService,

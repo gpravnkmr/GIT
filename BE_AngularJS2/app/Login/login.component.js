@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var login_services_1 = require("./login.services");
 var router_1 = require("@angular/router");
-var CookiesService_1 = require("../Shared/CookiesService");
-var shared_service_1 = require("../Shared/shared.service");
+var CookiesService_1 = require("../SharedServices/CookiesService");
+var shared_service_1 = require("../SharedServices/shared.service");
 var app_component_1 = require("../app.component");
 var LoginComponent = (function () {
     function LoginComponent(route, router, _loginService, _cookieService, _sharedService, _appComponent) {
@@ -42,10 +42,10 @@ var LoginComponent = (function () {
         this.invalidUser = false;
         this.loading = false;
         this._cookieService.setCookie("BE_UserRole", _user.DesignationID.toString());
-        if (!_user.TenantID && _user.TenantID != 0) {
+        if (_user.TenantID != 0) {
             this._cookieService.setCookie("BE_TenantID", _user.TenantID.toString());
         }
-        else if (!_user.EmployeeID && _user.EmployeeID != 0) {
+        else if (_user.EmployeeID != 0) {
             this._cookieService.setCookie("BE_EmployeeID", _user.TenantID.toString());
         }
         this._appComponent.IsUserLoggedIn = true;

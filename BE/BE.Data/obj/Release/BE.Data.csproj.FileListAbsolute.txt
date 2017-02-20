@@ -1,0 +1,7 @@
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\bin\Release\BE.Data.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\bin\Release\BE.Data.pdb
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\bin\Release\BE.Entities.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\bin\Release\BE.Entities.pdb
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\obj\Release\BE.Data.csprojResolveAssemblyReference.cache
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\obj\Release\BE.Data.dll
+D:\Business_Plan\BhawanaEnterprises\Development\BE\BE.Data\obj\Release\BE.Data.pdb

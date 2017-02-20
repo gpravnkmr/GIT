@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+    </div>
+    <div class="table-responsive" *ngIf="_receipt">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Month
+                    </th>
+                    <th>
+                        Receipt Type
+                    </th>
+                    <th>
+                        &nbsp;
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let receiptDetails of _receipt">
+                    <td>
+                        {{receiptDetails.Month}}
+                    </td>
+                    <td>
+                        {{receiptDetails.ReceiptType}}
+                    </td>
+                    <td>
+                        <a href="#" (ng-click)="downloadFile(receiptDetails.PaymentID)">Download</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="center-align">
+                        <button type="button" class="btn btn-primary" (click)='goback()'>Back</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
