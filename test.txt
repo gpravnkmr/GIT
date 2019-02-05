@@ -1,0 +1,41 @@
+@GetMapping(produces = MediaTypes.HAL_JSON_VALUE)
+	public TacDTOPagedResources<TacDTOResource<TacTypeDTO>> readAll(@QuerydslPredicate(root = DiscretionaryType.class) Predicate predicate, Pageable pageable) {
+		return discretionaryTypeService.readAll(pageable, p -> linkTo(methodOn(this.getClass()).readAll(predicate, p)).withSelfRel()).orElseThrow(NotFoundException::new);
+	}
+
+	@PutMapping(path = "/code/{discretionaryTypeCode}", produces = MediaTypes.HAL_JSON_VALUE)
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public TacDTOResource<TacTypeDTO> creadByCode(@PathVariable("discretionaryTypeCode") String typeCode) {
+		return discretionaryTypeService.creadByCode(typeCode).orElseThrow(NotFoundException::new);
+	}
+
+	@GetMapping(path = "/{discretionaryTypeId}", produces = MediaTypes.HAL_JSON_VALUE)
+	public TacDTOResource<TacTypeDTO> readById(@PathVariable("discretionaryTypeId") Long discretionaryTypeId) {
+		return discretionaryTypeService.readById(discretionaryTypeId).orElseThrow(NotFoundException::new);
+	}
+
+	@Override
+	@GetMapping(path = "/code/{discretionaryTypeCode}", produces = MediaTypes.HAL_JSON_VALUE)
+	public TacDTOResource<TacTypeDTO> readByCode(@PathVariable("discretionaryTypeCode") String typeCode) {
+		return discretionaryTypeService.readByCode(typeCode).orElseThrow(NotFoundException::new);
+	}
+
+	@PatchMapping(value = "/{discretionaryTypeId}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaTypes.HAL_JSON_VALUE)
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public TacDTOResource<TacTypeDTO> update(@PathVariable("discretionaryTypeId") Long typeId, @RequestBody TacTypeDTO discretionaryType) {
+		return discretionaryTypeService.update(typeId, discretionaryType).orElseThrow(NotFoundException::new);
+	}
+
+	@DeleteMapping(value = "/code/{discretionaryTypeCode}", produces = MediaTypes.HAL_JSON_VALUE)
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public ResponseEntity<Void> deleteByCode(@PathVariable("discretionaryTypeCode") String discretionaryTypeCode) {
+		discretionaryTypeService.deleteByCode(discretionaryTypeCode);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	}
+
+	@DeleteMapping(value = "/{discretionaryTypeId}", produces = MediaTypes.HAL_JSON_VALUE)
+	@ResponseStatus(HttpStatus.ACCEPTED)
+	public ResponseEntity<Void> deleteById(@PathVariable("discretionaryTypeId") Long discretionaryTypeId) {
+		discretionaryTypeService.deleteById(discretionaryTypeId);
+		return new ResponseEntity<>(HttpStatus.ACCEPTED);
+	}
